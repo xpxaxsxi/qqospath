@@ -29,13 +29,13 @@ will try to do a version that gives out a atom as in Example1.
 
 Example 3:
 
-?- Testvariable='xxx', AnotherVariable='yyy',A={|ospath||Testvariable\'some text here'\AnotherVariable|}.
-
+ ?- Testvariable=xxx, AnotherVariable=yyy,A={|ospath||Testvariable_sometext_here_AnotherVariable|}.
+ 
 Testvariable = xxx,
 
 AnotherVariable = yyy,
 
-A = [xxx, '/\'some text here\'/', yyy].
+A = [xxx, '_sometext_here_', yyy].
 
 All the variables that are used with the ospath/4 are "seen" while the parsing of the the ospath/4 is done, I 
 believe it is possible to do a code, where the variables can be explicitly shown.
