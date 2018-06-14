@@ -75,6 +75,7 @@ path(SA,VN,[H|T]) -->
 ...
 
 And then I get:
+
 ?- SomeVar=xxx,OtherVar=yyy,A= {|ospath||---SomeVar|},atomic_list_concat(A,'/',At).
 
 ERROR: Unknown message: [],['SomeVar'=_9766,'OtherVar'=_9778,'A'=_9790,'At'=_9802]
