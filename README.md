@@ -50,6 +50,7 @@ At the command prompt, I developed the DCG-clauses initially with the phrase/2-3
 First I thought that quasi-quoting is just some techical term, but actually quasi-quoting is some linguistics thing  https://en.wikipedia.org/wiki/Quasi-quotation
 
 DEVELOPER NOTES2:
+
 While developing with phrase/3 this is possible. First arguments is SyntaxArgs, Second argument is VariableNames.
 
 ?- phrase(qqospath:path(_SA,['X'=aaa,'Y'=bbb],Res),`XYXY`,R).
