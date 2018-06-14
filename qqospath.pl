@@ -3,9 +3,20 @@
 :- quasi_quotation_syntax(ospath).
 
 ospath(Content,SyntaxArgs,VariableNames,Result):-
-    phrase_from_quasi_quotation(path(SyntaxArgs,VariableNames,Result), Content).
+    phrase_from_quasi_quotation(path1000(SyntaxArgs,VariableNames,Result), Content).
+
+list_to_path_segments(_S,[H],R):-
+    !,R=H.
+list_to_path_segments(S,[H|T],R):-
+    S==H,
+    !,
+    list_to_path_segments(S,T,R).
+list_to_path_segments(S,[H|T],R) :-
+    list_to_path_segments(S,T,Rdeep),R=Rdeep/H.
 
 
+path1000(SA,VN,R)--> {VN2=['\\'=Slash|VN]}, path(SA,VN2,Q),
+{ reverse(Q,RQ),list_to_path_segments(Slash,RQ,R)}.
 
 path(_SA,_VN,[]) --> \+ [_],!.
 
@@ -14,7 +25,7 @@ path(SA,VN,[H|T]) -->
     path(SA,VN,T).
 
 path(SA,VN,[H|T]) -->
-    pathsegment(SA,VN,Seg),!,{atomic_list_concat(Seg,SegA),H=SegA},
+    pathsegment(SA,VN,Seg),!,{ atomic_list_concat(Seg,SegA),H=SegA},
     path(SA,VN,T).
 
 
