@@ -10,38 +10,35 @@ are like a macro.
 
 EXAMPLE1:
 
-?- A={|ospath||c:\program files (x86)\swipl|}.
+?- A= {|ospath||C:\program files (x86)\swipl|}.
 
-A = ['c:/program files (x86)/swipl'].
+A = 'C:'/'program files (x86)'/swipl.
 
 
 EXAMPLE2:
-
 ?- Var=swipl,A={|ospath||c:\program files (x86)\Var|}.
 
 Var = swipl,
 
-A = ['c:/program files (x86)/', swipl].
+A = 'c:'/'program files (x86)'/swipl.
+
 
 The Example2 gives now a term that can be fed to atomic_list_concat/2 to get a proper prolog-path. Possibly I 
 will try to do a version that gives out a atom as in Example1.
 
 
 EXAMPLE3:
+?- Testvariable=xxx, AnotherVariable=yyy,A={|ospath||Testvariable\sometext_here\AnotherVariable|}.
 
- ?- Testvariable=xxx, AnotherVariable=yyy,A={|ospath||Testvariable_sometext_here_AnotherVariable|}.
- 
 Testvariable = xxx,
 
 AnotherVariable = yyy,
 
-A = [xxx, '_sometext_here_', yyy].
-
-All the variables that are used with the ospath/4 are "seen" while the parsing of the the ospath/4 is done, I 
-believe it is possible to do a code, where the variables can be explicitly shown.
-
+A = xxx/sometext_here/yyy.
 
 DEVELOPER NOTES:
+All the variables that are used with the ospath/4 are "seen" while the parsing of the the ospath/4 is done, I 
+believe it is possible to do a code, where the variables can be explicitly shown.
 
 While developing, I noticed that trace/1 will not work, writeln/1 can cause a huge number of errors and even the debug/3 messages don't work. I used the throw/1 to get information what is going on inside qqospath.
 
