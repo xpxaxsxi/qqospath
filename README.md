@@ -1,5 +1,5 @@
 # qqospath
-Windows file path to prolog conversion that uses quasi quotations
+Windows file path to path_segments  conversion that uses quasi quotations
 
 A learning project where I took a deep dive to quasi quoting. 
 
@@ -14,6 +14,7 @@ EXAMPLE1:
 
 A = 'C:'/'program files (x86)'/swipl.
 
+See also: http://www.swi-prolog.org/pldoc/doc_for?object=prolog_source%3Apath_segments_atom/2
 
 EXAMPLE2:
 ?- Var=swipl,A={|ospath||c:\program files (x86)\Var|}.
