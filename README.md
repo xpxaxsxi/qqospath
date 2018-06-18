@@ -8,11 +8,11 @@ I'll try something more difficult, a variables in the path. After that I noticed
 are like a macro. 
 
 EXAMPLE1:
-'
+
 ?- A= {|ospath||C:\program files (x86)\swipl|}.
 
 A = ['C:\\\\program files (x86)\\\\swipl'].
-'
+
 
 EXAMPLE2:
 
