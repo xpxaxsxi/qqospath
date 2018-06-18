@@ -7,13 +7,12 @@ First I had an idea to just use it for getting a prolog-path nicely from OS-path
 I'll try something more difficult, a variables in the path. After that I noticed, that these
 are like a macro. 
 
-
 EXAMPLE1:
-
+'
 ?- A= {|ospath||C:\program files (x86)\swipl|}.
 
 A = ['C:\\\\program files (x86)\\\\swipl'].
-
+'
 
 EXAMPLE2:
 
