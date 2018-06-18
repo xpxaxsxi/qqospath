@@ -16,6 +16,7 @@ A = ['C:\\\\program files (x86)\\\\swipl'].
 
 
 EXAMPLE2:
+
 ?- Var=swipl,A={|ospath(Var)||c:\program files (x86)\Var|}.
 
 Var = swipl,
@@ -24,6 +25,7 @@ A = ['c:\\\\program files (x86)\\\\', swipl].
 
 
 EXAMPLE3:
+
 ?- Testvariable=xxx, AnotherVariable=yyy,A={|ospath(Testvariable,AnotherVariable)||Testvariable\sometext_here\AnotherVariable|}.
 
 Testvariable = xxx,
