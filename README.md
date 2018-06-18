@@ -36,7 +36,6 @@ DEVELOPER NOTES:
 All the variables that are used with the ospath/4 are "seen" while the parsing of the the ospath/4 is done, I 
 believe it is possible to do a code, where the variables can be explicitly shown.
 
-While developing, I noticed that trace/1 will not work, writeln/1 can cause a huge number of errors and even the debug/3 messages don't work. I used the throw/1 to get information what is going on inside qqospath.
 
 At the command prompt, I developed the DCG-clauses initially with the phrase/2-3. The phrase/2 and phrase_from_quasi_quotation/2 they are very much alike, but with a big difference: phrase_from_quasi_quotation/2 does some external processing after it finishes, predicates from apply_macros.pl are being used, as seen with the debugger.
 
