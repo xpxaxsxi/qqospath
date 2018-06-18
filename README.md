@@ -33,9 +33,8 @@ AnotherVariable = yyy,
 A = [xxx, '\\\\sometext_here\\\\', yyy].
 
 DEVELOPER NOTES:
-All the variables that are used with the ospath/4 are "seen" while the parsing of the the ospath/4 is done, I 
-believe it is possible to do a code, where the variables can be explicitly shown.
-
+Variables are excplicitly used in the Argument of a {|ospath(Arg1,Arg2)|| ... Arg1 Arg2  |}, it is easy to do a version that uses 
+all variables implicitly as ImplicitA, ImplicitB,ImplicitC,{|ospath|| ... ImplicitA ImplicitB ImplicitB |}, but the developer must be careful with implicit variables. 
 
 At the command prompt, I developed the DCG-clauses initially with the phrase/2-3. The phrase/2 and phrase_from_quasi_quotation/2 they are very much alike, but with a big difference: phrase_from_quasi_quotation/2 does some external processing after it finishes, predicates from apply_macros.pl are being used, as seen with the debugger.
 
