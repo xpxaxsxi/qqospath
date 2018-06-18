@@ -12,7 +12,7 @@ EXAMPLE1:
 
 ?- A= {|ospath||C:\program files (x86)\swipl|}.
 
-A = ['C:\\program files (x86)\\swipl'].
+A = ['C:\\\\program files (x86)\\\\swipl'].
 
 
 EXAMPLE2:
@@ -20,7 +20,7 @@ EXAMPLE2:
 
 Var = swipl,
 
-A = ['c:\\program files (x86)\\', swipl].
+A = ['c:\\\\program files (x86)\\\\', swipl].
 
 
 EXAMPLE3:
@@ -30,7 +30,7 @@ Testvariable = xxx,
 
 AnotherVariable = yyy,
 
-A = [xxx, '\\sometext_here\\', yyy].
+A = [xxx, '\\\\sometext_here\\\\', yyy].
 
 DEVELOPER NOTES:
 All the variables that are used with the ospath/4 are "seen" while the parsing of the the ospath/4 is done, I 
