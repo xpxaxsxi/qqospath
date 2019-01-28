@@ -9,13 +9,23 @@ I'll try something more difficult, a variables in the path. After that I noticed
 are like a macro. 
 
 EXAMPLE1:
+Compose a command that can be be used with shell/1
+?- MSG='hello world',atomic_list_concat(  {|ospath(MSG)||echo MSG |}   ,Command).
+Command = 'echo hello world '.
 
+...
+ 
+ C:\> echo hello world
+ hello world
+ 
+ 
+EXAMPLE2:
 ?- A= {|ospath||C:\program files (x86)\swipl|}.
 
 A = ['C:\\\\program files (x86)\\\\swipl'].
 
 
-EXAMPLE2:
+EXAMPLE3:
 
 ?- Var=swipl,A={|ospath(Var)||c:\program files (x86)\Var|}.
 
@@ -24,7 +34,7 @@ Var = swipl,
 A = ['c:\\\\program files (x86)\\\\', swipl].
 
 
-EXAMPLE3:
+EXAMPLE4:
 
 ?- Testvariable=xxx, AnotherVariable=yyy,A={|ospath(Testvariable,AnotherVariable)||Testvariable\sometext_here\AnotherVariable|}.
 
