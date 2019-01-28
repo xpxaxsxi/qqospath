@@ -1,5 +1,6 @@
 # qqospath
-Windows file path to path_segments  conversion that uses quasi quotations
+Windows file path to path_segments  conversion that uses quasi quotations. 
+Write commands as they are written in the Windows cmd.exe console window, inside a prolog program.
 
 A learning project where I took a deep dive to quasi quoting. 
 
