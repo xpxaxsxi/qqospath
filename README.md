@@ -10,13 +10,21 @@ are like a macro.
 
 EXAMPLE1:
 Compose a command that can be be used with shell/1
+
+
 ?- MSG='hello world',atomic_list_concat(  {|ospath(MSG)||echo MSG |}   ,Command).
+
+
 Command = 'echo hello world '.
+
 
 ...
  
- C:\> echo hello world
- hello world
+>C:\\> echo hello world
+
+>hello world
+ 
+ 
  
  
 EXAMPLE2:
