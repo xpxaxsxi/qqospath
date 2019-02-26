@@ -16,6 +16,7 @@ hello world
 ```
  
 EXAMPLE2:
+It is possible to write anything to ospath, because syntax is not checked. Not checking the syntax is illogical, this would not be acceptable at planet Vulcan! 
 ``` prolog
 ?- A= {|ospath||C:\program files (x86)\swipl|}. %Wow thats cool!! I can write a line with 
                                                 %Windows command line syntax inside a prolog file :) :) 
