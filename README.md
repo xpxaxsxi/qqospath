@@ -42,7 +42,7 @@ EXAMPLE4:
   A={|ospath(Testvariable,AnotherVariable)||Testvariable\sometext_here\AnotherVariable|}.
 Testvariable = xxx,
 AnotherVariable = yyy,
-A = [xxx, '\\sometext_here\\', yyy].
+A = [xxx, '\sometext_here\', yyy].
 ```
 
 DEVELOPER NOTES:
