@@ -2,12 +2,6 @@
 Windows file path to path_segments  conversion that uses quasi quotations. 
 Write commands as they are written in the Windows cmd.exe console window, inside a prolog program.
 
-A learning project where I took a deep dive to quasi quoting. 
-
-First I had an idea to just use it for getting a prolog-path nicely from OS-path. Then I thought, ok, 
-I'll try something more difficult, a variables in the path. After that I noticed, that these
-are like a macro. 
-
 EXAMPLE1:
 Compose a command that can be be used with shell/1
 
@@ -46,6 +40,13 @@ A = [xxx, '\sometext_here\', yyy].
 ```
 
 DEVELOPER NOTES:
+
+A learning project where I took a deep dive to quasi quoting. 
+
+First I had an idea to just use it for getting a prolog-path nicely from OS-path. Then I thought, ok, 
+I'll try something more difficult, a variables in the path. After that I noticed, that these
+are like a macro. 
+
 Variables are excplicitly used in the Argument of a {|ospath(Arg1,Arg2)|| ... Arg1 Arg2  |}, it is easy to do a version that uses 
 all variables implicitly as ImplicitA, ImplicitB,ImplicitC,{|ospath|| ... ImplicitA ImplicitB ImplicitB |}, but the developer must be careful with implicit variables. 
 
