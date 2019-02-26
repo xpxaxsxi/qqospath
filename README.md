@@ -11,7 +11,7 @@ are like a macro.
 EXAMPLE1:
 Compose a command that can be be used with shell/1
 
-```
+``` prolog
 ?- MSG='hello world',  atomic_list_concat(  {|ospath(MSG)||echo MSG |}   ,Command).
 Command = 'echo hello world '. %copy and paste to Windows prompt
 ```
@@ -22,21 +22,21 @@ hello world
 ```
  
 EXAMPLE2:
-```
+``` prolog
 ?- A= {|ospath||C:\program files (x86)\swipl|}. %Wow thats cool!! I can write a line with 
                                                 %Windows command line syntax inside a prolog file :) :) 
 A = ['C:\\program files (x86)\\swipl'].
 ```
 
 EXAMPLE3:
-```
+``` prolog
 ?- Var=swipl,  A={|ospath(Var)||c:\program files (x86)\Var|}.
 Var = swipl,
 A = ['c:\\program files (x86)\\', swipl].
 ```
 
-EXAMPLE4:
-```
+EXAMPLE4: (Github gets confused when trying to understand this prolog code??)
+``` prolog
 ?- Testvariable=xxx, 
   AnotherVariable=yyy,
   A={|ospath(Testvariable,AnotherVariable)||Testvariable\sometext_here\AnotherVariable|}.
@@ -56,12 +56,11 @@ First I thought that quasi-quoting is just some techical term, but actually quas
 DEVELOPER NOTES2:
 
 While developing with phrase/3 this is possible. First arguments is SyntaxArgs, Second argument is VariableNames.
-
+```
 ?- phrase(qqospath:path(_SA,['X'=aaa,'Y'=bbb],Res),`XYXY`,R).
-
 Res = [aaa, bbb, aaa, bbb],
-
 R = [].
+```
 
 But phrase_from_quasi_quotation/2 doesn't "see" the members of VariableNames (like 'X'=aaa), it "sees" only variables, because the variables are unified outside the phrase_from_quasi_quotation/2. That is to say phrase_from_quasi_quotation/2 handles 
 only variables and those variables are unified after exit from the phrase_from_quasiquotation/2. I thought this was a bug, I spent a few hours to "debug" this "bug", but then I found out that it is by design.
@@ -71,18 +70,19 @@ While really calling phrase_from_quasi_quotation/2 the only way I could get data
 
 This example shows a throw/1 inside a DCG rule:
 ...
-
+```
 path(SA,VN,[H|T]) -->
     pathsegment(SA,VN,Seg),!,{    throw((SA,VN)),          atomic_list_concat(Seg,SegA),H=SegA},
     path(SA,VN,T).
-    
+```    
 ...
 
 And then I get:
 
+```
 ?- SomeVar=xxx,OtherVar=yyy,A= {|ospath||---SomeVar|},atomic_list_concat(A,'/',At).
-
 ERROR: Unknown message: [],['SomeVar'=_9766,'OtherVar'=_9778,'A'=_9790,'At'=_9802]
+```
 
 So the _9766 and _9778  are unified with real values *after* the phrase_from_quasi_quotes/2 exits. The 
 debugger shows predicates from the apply_macros.pl 
