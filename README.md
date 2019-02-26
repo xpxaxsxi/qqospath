@@ -23,7 +23,8 @@ hello world
  
 EXAMPLE2:
 ```
-?- A= {|ospath||C:\program files (x86)\swipl|}.
+?- A= {|ospath||C:\program files (x86)\swipl|}. %Wow thats cool!! I can write a line with 
+                                                %Windows command line syntax inside a prolog file :) :) 
 A = ['C:\\program files (x86)\\swipl'].
 ```
 
