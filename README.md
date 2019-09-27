@@ -4,7 +4,8 @@ Compose a command line argument in Windows using input variables from Prolog.
 EXAMPLE 0.5:
 (Part of a in-house software that builds a command line argument in Windows 10) 
 Ffmpeg.exe and ffplay.exe will show a zoom in-effect using some input image. Image
-is softened dynamically while zooming-in
+is softened dynamically while zooming-in. write_comm/2 is doing a normalization that removes 
+excessive carriage returns and excessive whitespace. 
 ``` prolog
 (debugging(ffzoompan(report))-> DEBUG=' -report -nostats';DEBUG=''),
     atomic_list_concat( {|ospath(FFMPEG,FFPLAY,DEBUG,FPS,BL1,BL2,STEP,SCALER,IMG,WIDo,HEIo,XX,YY,MAXRECT)
