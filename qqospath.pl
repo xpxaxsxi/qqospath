@@ -3,12 +3,7 @@
 :- quasi_quotation_syntax(ospath).
 
 :- dynamic dict_result_cached/4.
-:- use_module(sources_root(esleep)).
 
-%for debugging shows a window that tells number of cached items
-cache_count:-
-    thread_create((attach_console,thread_self(A),atomic_concat(we_,A,Eng),restart_eng(Eng),repeat,aggregate_all(count,dict_result_cached(_,_,_,_),R),
-    write(R),tab(2),flush_output,\+next(Eng,0.5)),_,[alias(cache_count),detached(true)]).
 
 command(QQ,Res):-
     atomic_list_concat(QQ,Res).
