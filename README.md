@@ -2,6 +2,43 @@
 Windows file path to path_segments  conversion that uses quasi quotations. 
 Write commands as they are written in the Windows cmd.exe console window, inside a prolog program.
 
+EXAMPLE 0.5:
+(Part of a in-house software that builds a command line argument in Windows 10) 
+Ffmpeg.exe and ffplay.exe will show a zoom in-effect using some input image
+``` prolog
+(debugging(ffzoompan(report))-> DEBUG=' -report -nostats';DEBUG=''),
+    atomic_list_concat( {|ospath(FFMPEG,FFPLAY,DEBUG,FPS,BL1,BL2,STEP,SCALER,IMG,WIDo,HEIo,XX,YY,MAXRECT)
+||cmd /C" "FFMPEG " DEBUG -i "IMG"  -an -pixel_format yuv444p -filter_complex
+   "[0:0] scale=w=SCALER*WIDo:h=SCALER*HEIo,
+   zoompan@1=z=zoom+STEP
+   :x=  (XX*(zoom+STEP)-XX)/(zoom+STEP):y= (YY*(zoom+STEP)-YY)  /(zoom+STEP):d=375:s=WIDoxHEIo:fps=FPS,
+
+   scale=h='if(lte(a,1.0),MAXRECT,-1)':w='if(lte(a,1.0),-1,MAXRECT)',
+
+     scale=
+       h='if(lte(a,1.0),MAXRECT,-1)':
+       w='if(lte(a,1.0),-1,MAXRECT)',
+         split=3[c1][b1][c2];
+
+     [c2]copy@str0,BL2      [d1];
+     [b1]copy@str1,BL1 [k1];
+     [c1]copy@str2,
+     sendcmd=
+       '13.0  [enter] streamselect map 1;
+        26.0  [enter] streamselect map 0',
+     [d1][k1]streamselect=inputs=3:map=2,
+
+     tpad=stop_mode=clone:stop=2*FPS[out]"
+     -map "[out]"  -vcodec h264_qsv -f mpegts pipe: |
+     "FFPLAY" -y 750  -autoexit
+         -i pipe: -vcodec h264_qsv -f mpegts "|},Comm),
+
+debug(ffzoompan(command),'~@',write_comm(Comm)),
+     with_output_to(atom(Comm2),write_comm(Comm)),
+     shell(Comm2,_),
+     (   debugging(ffzoompan(report))->lastlog;true).
+
+```
 EXAMPLE1:
 Compose a command that can be be used with shell/1
 
