@@ -1,4 +1,4 @@
-:- module(qqospath, [ospath/4,command/2,cache_count/0]).
+:- module(qqospath, [ospath/4,command/2]).
 :- use_module(library(quasi_quotations)).
 :- quasi_quotation_syntax(ospath).
 
